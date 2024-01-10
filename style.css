@@ -12,11 +12,27 @@ body {
     background-color: #EEEEE7;
 }
 
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
 
-.wrapper, .container, .content, .body, .greeting,
-.information, .result {
+ .container, .content, .body,
+.information, .result  {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+.greeting{
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -31,6 +47,17 @@ body {
     background-color: aliceblue;
     box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
     width: 950px;
+}
+
+.gamelist {
+    background-color: rgb(192, 215, 235);
+    box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+    width: 500px;
+    text-align: center;
+}
+
+.replayform{
+    
 }
 
 .content {

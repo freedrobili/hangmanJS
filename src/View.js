@@ -9,7 +9,12 @@ import {
     text_info,
     makeWord,
     hidden_word,
-    canvas
+    canvas,
+    table,
+    gamelist,
+    listGamesDB,
+    replayGameDB,
+    textGameList
 } from './Model.js';
 
 export let userName;
@@ -90,11 +95,11 @@ export function informationOutput() {
         block_information.style.display = 'flex';
         block_showGame.style.display = 'none';
 
-        text_info.innerHTML = "Игра 'Виселица' (hangman). Компьютер загадывает слово из шести букв"+ 
-        "(список возможных слов заранее сгенерирован и сохранен в базе данных) и рисует на странице"+ 
-       "отдельные пустые клетки для каждой буквы. Игрок пытается угадать буквы, а затем и все слово"+ 
-        "целиком. Если игрок правильно угадывает букву, компьютер вписывает ее в клетку. Если ошибается,"+  
-        "то рисует одну из частей тела повешенного человека (используется псевдографика). Чтобы победить,"+  
+        text_info.innerHTML = "Игра 'Виселица' (hangman). Компьютер загадывает слово из шести букв "+ 
+        "(список возможных слов заранее сгенерирован и сохранен в базе данных) и рисует на странице "+ 
+       "отдельные пустые клетки для каждой буквы. Игрок пытается угадать буквы, а затем и все слово "+ 
+        "целиком. Если игрок правильно угадывает букву, компьютер вписывает ее в клетку. Если ошибается, "+  
+        "то рисует одну из частей тела повешенного человека (используется псевдографика). Чтобы победить, "+  
         "игрок должен угадать все буквы в слове до того, как повешенный человечек будет полностью нарисован.";
     }
 }
@@ -106,9 +111,24 @@ export function showGameOutput() {
     block_message.style.display = 'none';
     block_result.style.display = 'none';
     canvas.hidden = false;
-    
+    gamelist.hidden = false;
     makeWord();
 }
+
+
+export async function replayGame(){
+    let html = await replayGameDB();
+    table.innerHTML = html;
+    textGameList.innerHTML = "Повтор игры"
+}
+
+
+export async function showGames(){
+    let html = await listGamesDB();
+    table.innerHTML = html;
+    textGameList.innerHTML = "Список игр"
+}
+
 
 export function messageOutput(type_message) {
     if (type_message === "win") {

@@ -8,6 +8,7 @@
     <title>Виселица</title>
 </head>
 <body>
+<script src="https://unpkg.com/idb/build/iife/index-min.js"></script>
 <div class="wrapper">
     <div class="container">
         <div class="content">
@@ -17,11 +18,9 @@
             <div class="body">
               <canvas id="canvas" class="canvas" width=500 height=500 hidden=true></canvas>
                 <div id="greeting" class="greeting">
-                    <form action="">
-                        <label for="name">Ваше имя:</label>
-                        <input type="text" id="name" name="name">
-                        <input type="button" id="nextInfo" value="Далее">
-                    </form>
+                        <div><label for="name">Ваше имя:</label></div>
+                        <div><input type="text" id="name" name="name"></div>
+                        <div><input type="button" id="nextInfo" value="Далее"></div>
                 </div>
 
                 <div class="information" id="information">
@@ -30,11 +29,9 @@
                 </div>
 
                 <div class="show-game" id="show-game">
-                    <form action="">
-                        <label for="getLetter">Твоя буква:</label>
-                        <input type="text" id="getLetter" name="getLetter">
-                        <input type="button" id="checkLetter" value="Отправить">
-                    </form>
+                    <label for="getLetter">Твоя буква:</label>
+                    <input type="text" id="getLetter" name="getLetter">
+                    <input type="button" id="checkLetter" value="Отправить">
                 </div>
 
                 <div class="message" id="message"></div>
@@ -46,6 +43,16 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="gamelist" id="gamelist" hidden=true>
+        <input type="button" id="replayId" value="Повтор игры">
+        <input type="button" id="listGames" value="Спиоск игр">
+         <div id="textGameList"></div>
+         <div>
+            <table border="1" id="table" align="center">
+                
+            </table>
+         </div>
     </div>
 </div>
 
